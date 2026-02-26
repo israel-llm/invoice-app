@@ -23,4 +23,10 @@ export class InvoiceService {
     return this.invoiceData.items.reduce((total, item) => total + (item.quantity*item.price), 0);
   }
 
+  removeItem(id: number): Invoice{
+    this.invoiceData.items = this.invoiceData.items.filter(item => item.id != id);
+    const total: number = this.calculateTotal();
+    return { ...this.invoiceData, total };
+  }
+
 }
