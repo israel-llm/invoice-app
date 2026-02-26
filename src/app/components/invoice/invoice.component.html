@@ -4,17 +4,18 @@
       <h2>Ejemplo Factura</h2>
     </div>
     <div class="card-body">
-      <app-invoice-view [id]="invoice.id" [name]="invoice.name"></app-invoice-view>
+      <app-invoice-view [id]="invoice.id" [name]="invoice.name"/>
       <div class="row my-3">
         <div class="col">
-          <app-client-view [client]="invoice.client"></app-client-view>
+          <app-client-view [client]="invoice.client"/>
         </div>
         <div class="col">
-          <app-company-view [company]="invoice.company"></app-company-view>
+          <app-company-view [company]="invoice.company"/>
         </div>
       </div>
       <div>
-        <app-list-item [items]="invoice.items"></app-list-item>
+        <app-list-item [items]="invoice.items"/>
+        <app-total [total]="invoice.total"/>
       </div>
     </div>
   </div>

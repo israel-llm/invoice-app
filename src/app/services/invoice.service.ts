@@ -12,7 +12,15 @@ export class InvoiceService {
   constructor() { }
 
   getInvoice(): Invoice {
-    return this.invoiceData;
+    const total: number = this.calculateTotal();
+    return { ...this.invoiceData, total };
+  }
+
+  calculateTotal(): number {
+    // let total: number = 0;
+    // this.invoiceData.items.forEach(item => total += item.quantity*item.price);
+    // return total;
+    return this.invoiceData.items.reduce((total, item) => total + (item.quantity*item.price), 0);
   }
 
 }
